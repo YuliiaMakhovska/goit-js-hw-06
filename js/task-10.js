@@ -24,7 +24,7 @@ let value = 30;
 const boxes = [];
 function createBoxes(amount) {
   amount = input.value;
-  for (let i = 1; i < amount.length; i++) {
+  for (let i = 1; i < amount; i++) {
     value += 10;
     const box = document.querySelector("div");
     box.classList.add("box");
@@ -33,11 +33,11 @@ function createBoxes(amount) {
     box.style.width = `${value}px`;
     boxes.push(box);
   }
+  return boxes;
   boxesEl.append(...boxes);
 }
-
+function destroyBoxes() {
+  boxes.innerHTML = "";
+}
 createBtn.addEventListener("click", createBoxes);
-
-// function onClick(event) {
-//   console.log(event);
-// }
+destroyBtn.addEventListener("click", destroyBoxes);
